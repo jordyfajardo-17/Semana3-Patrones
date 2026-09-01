@@ -1,0 +1,29 @@
+@startuml
+class Reserva {
+  -estudiante: String
+  -docente: String
+  -fechaHora: LocalDateTime
+  -modalidad: String
+  -tema: String
+  -observaciones: String
+  -recordatorio: boolean
+}
+
+class ReservaBuilder {
+  -estudiante: String
+  -docente: String
+  -fechaHora: LocalDateTime
+  -modalidad: String
+  -tema: String
+  -observaciones: String
+  -recordatorio: boolean
+  +ReservaBuilder(estudiante, docente, fechaHora)
+  +modalidad(modalidad): ReservaBuilder
+  +tema(tema): ReservaBuilder
+  +observaciones(observaciones): ReservaBuilder
+  +recordatorio(recordatorio): ReservaBuilder
+  +build(): Reserva
+}
+
+ReservaBuilder ..> Reserva : construye
+@enduml
