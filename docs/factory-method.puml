@@ -1,0 +1,36 @@
+@startuml
+interface Notificacion {
+  +enviar(destinatario: String, mensaje: String): void
+}
+
+abstract class NotificacionCreator {
+  +crearNotificacion(): Notificacion
+  +notificar(destinatario: String, mensaje: String): void
+}
+
+class EmailNotificacion
+class SmsNotificacion
+class PushNotificacion
+class WhatsAppNotificacion
+
+class EmailCreator
+class SmsCreator
+class PushCreator
+class WhatsAppCreator
+
+Notificacion <|.. EmailNotificacion
+Notificacion <|.. SmsNotificacion
+Notificacion <|.. PushNotificacion
+Notificacion <|.. WhatsAppNotificacion
+
+NotificacionCreator <|-- EmailCreator
+NotificacionCreator <|-- SmsCreator
+NotificacionCreator <|-- PushCreator
+NotificacionCreator <|-- WhatsAppCreator
+
+NotificacionCreator ..> Notificacion : crea
+EmailCreator ..> EmailNotificacion : crea
+SmsCreator ..> SmsNotificacion : crea
+PushCreator ..> PushNotificacion : crea
+WhatsAppCreator ..> WhatsAppNotificacion : crea
+@enduml
