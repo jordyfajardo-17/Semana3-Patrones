@@ -13,11 +13,14 @@ public final class Reserva {
     private final boolean recordatorio;
     private final String enlace;
     private final int duracionMinutos;
+    private final String idiomaNotificacion;
+    private final boolean requiereGrabacion;
 
     Reserva(String estudiante, String docente, LocalDateTime fechaHora,
             Modalidad modalidad, String motivo, String observacion,
             Prioridad prioridad, boolean recordatorio, String enlace,
-            int duracionMinutos) {
+            int duracionMinutos, String idiomaNotificacion,
+            boolean requiereGrabacion) {
         this.estudiante = estudiante;
         this.docente = docente;
         this.fechaHora = fechaHora;
@@ -28,6 +31,8 @@ public final class Reserva {
         this.recordatorio = recordatorio;
         this.enlace = enlace;
         this.duracionMinutos = duracionMinutos;
+        this.idiomaNotificacion = idiomaNotificacion;
+        this.requiereGrabacion = requiereGrabacion;
     }
 
     public String getEstudiante() { return estudiante; }
@@ -40,6 +45,8 @@ public final class Reserva {
     public boolean isRecordatorio() { return recordatorio; }
     public String getEnlace() { return enlace; }
     public int getDuracionMinutos() { return duracionMinutos; }
+    public String getIdiomaNotificacion() { return idiomaNotificacion; }
+    public boolean isRequiereGrabacion() { return requiereGrabacion; }
 
     @Override
     public String toString() {
@@ -54,6 +61,8 @@ public final class Reserva {
                 ", recordatorio=" + recordatorio +
                 ", enlace='" + enlace + '\'' +
                 ", duracionMinutos=" + duracionMinutos +
+                ", idiomaNotificacion='" + idiomaNotificacion + '\'' +
+                ", requiereGrabacion=" + requiereGrabacion +
                 '}';
     }
 }
